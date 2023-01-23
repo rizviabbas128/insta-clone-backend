@@ -5,11 +5,7 @@ const cloudinary = require("cloudinary")
 router.get ("/", async(req, res)=>{
     try{
         const posts= await PostModel.find().sort({_id:-1});
-        res.status(200).json({
-            status: 'Success',
-            posts
-        })
-        
+        res.json(posts)
     }
     catch(err){
         res.status(400).json({
