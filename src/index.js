@@ -1,6 +1,7 @@
 const app = require('./App');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+let Port = 3600 || process.env.Port;
 
 dotenv.config();
 //connect to DB
@@ -8,4 +9,4 @@ mongoose.connect(process.env.DATABASE_URL,{ useNewUrlParser: true, useUnifiedTop
     console.log('Successful Connected to DB')
 })
 
-app.listen(3600, () => console.log('Server is up at 3600 port'));
+app.listen(Port, () => console.log(`Server is up at ${Port}`));
